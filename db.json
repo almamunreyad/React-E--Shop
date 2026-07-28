@@ -1,0 +1,84 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "iPhone 16 Pro",
+      "price": 1299,
+      "category": "Mobile",
+      "image": "https://picsum.photos/300?random=1",
+      "description": "Latest Apple smartphone"
+    },
+    {
+      "id": "2",
+      "title": "MacBook Air M4",
+      "price": 1499,
+      "category": "Laptop",
+      "image": "https://picsum.photos/300?random=2",
+      "description": "Lightweight and powerful laptop"
+    },
+    {
+      "id": "3",
+      "title": "Sony WH-1000XM5",
+      "price": 399,
+      "category": "Headphone",
+      "image": "https://picsum.photos/300?random=3",
+      "description": "Noise cancelling headphone"
+    },
+    {
+      "id": "4",
+      "title": "Samsung Galaxy S24 Ultra",
+      "price": 1199,
+      "category": "Mobile",
+      "image": "https://picsum.photos/300?random=4",
+      "description": "Flagship Android smartphone with AI features"
+    },
+    {
+      "id": "5",
+      "title": "iPad Air M2",
+      "price": 599,
+      "category": "Tablet",
+      "image": "https://picsum.photos/300?random=5",
+      "description": "Versatile tablet for productivity and creativity"
+    },
+    {
+      "id": "6",
+      "title": "Dell XPS 15",
+      "price": 1899,
+      "category": "Laptop",
+      "image": "https://picsum.photos/300?random=6",
+      "description": "High-performance laptop for creators"
+    },
+    {
+      "id": "7",
+      "title": "Apple Watch Series 9",
+      "price": 399,
+      "category": "Smartwatch",
+      "image": "https://picsum.photos/300?random=7",
+      "description": "Advanced health and fitness tracking watch"
+    },
+    {
+      "id": "8",
+      "title": "LG UltraGear 27\"",
+      "price": 450,
+      "category": "Monitor",
+      "image": "https://picsum.photos/300?random=8",
+      "description": "High refresh rate gaming display"
+    },
+    {
+      "id": "9",
+      "title": "Logitech MX Keys S",
+      "price": 110,
+      "category": "Keyboard",
+      "image": "https://picsum.photos/300?random=9",
+      "description": "Ergonomic wireless keyboard for productivity"
+    },
+    {
+      "id": "10",
+      "title": "JBL Charge 5",
+      "price": 180,
+      "category": "Speaker",
+      "image": "https://picsum.photos/300?random=10",
+      "description": "Portable waterproof Bluetooth speaker"
+    }
+  ]
+}
