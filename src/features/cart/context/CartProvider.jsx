@@ -1,8 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CartContext from "./CartContext";
 
 export default function CartProvider({ children }) {
-  const [cart, setCart] = useState([]);
+  // const [cart, setCart] = useState([]);
+
+  // useState(() => initialValue) Lazy Initialization State এই Function শুধু প্রথম Render-এ একবার Run হবে। যখন Initial Value Calculate করতে সময় লাগে, তখন এটা ব্যবহার করা হয়।
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem("cart"); // getItem contain 1 argument such as: "key" same as removeItem contain only "key"
+
+    if (savedCart) {
+      return JSON.parse(savedCart); //(String → Object)
+    }
+    return []; // else for this if condition
+  });
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart)); // setItem contain 2 argument such as: "key" and "value" pair. LocalStorage only store the string value. (Object → String)
+  }, [cart]);
 
   // add to cart function
   function addToCart(product) {
