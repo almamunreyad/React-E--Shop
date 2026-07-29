@@ -128,7 +128,7 @@ export default function ProductsPage() {
   }
 
   if (error) {
-    return <ErrorMessage />;
+    return <ErrorMessage message={error} />;
   }
 
   return (
