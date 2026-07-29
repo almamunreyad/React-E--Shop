@@ -1,6 +1,14 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import CartContext from "../../features/cart/context/CartContext";
 
 export default function Navbar() {
+  const { cart } = useContext(CartContext);
+
+  const totalItems = cart.reduce((total, item) => {
+    return total + item.quantity;
+  }, 0);
+
   return (
     <header className="bg-gray-900 text-white">
       <div className="container mx-auto flex items-center justify-between py-4">
@@ -11,7 +19,7 @@ export default function Navbar() {
         <nav className="flex gap-6">
           <Link to="/about">About</Link>
           <Link to="/products">Products</Link>
-          <Link to="/cart">🛒 Cart (0)</Link>
+          <Link to="/cart">🛒 Cart ({totalItems})</Link>
           <Link to="/dashboard">Dashboard</Link>
 
           <Link

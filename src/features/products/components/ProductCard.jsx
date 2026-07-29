@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import CartContext from "../../cart/context/CartContext";
 
 export default function ProductCard({ product }) {
   const { id, title, price, category, image, description } = product;
+  const { addToCart } = useContext(CartContext);
 
   return (
     <div className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-lg">
@@ -26,7 +29,10 @@ export default function ProductCard({ product }) {
             View Details
           </Link>
 
-          <button className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
+          <button
+            onClick={() => addToCart(product)}
+            className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+          >
             Add To Cart
           </button>
         </div>

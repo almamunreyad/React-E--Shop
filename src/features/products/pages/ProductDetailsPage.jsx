@@ -4,10 +4,14 @@ import { useNavigate, useParams } from "react-router-dom";
 import Loader from "../../../shared/components/Loader";
 import ErrorMessage from "../../../shared/components/ErrorMessage";
 import { useProductDetails } from "../hooks/useProductDetails";
+import { useContext } from "react";
+import CartContext from "../../cart/context/CartContext";
 
 export default function ProductDetailsPage() {
   const { id } = useParams();
   const navigate = useNavigate();
+
+  const { addToCart } = useContext(CartContext);
 
   // before useProductDetails hook create
   // const [product, setProduct] = useState(null);
@@ -72,7 +76,10 @@ export default function ProductDetailsPage() {
             </p>
 
             <div className="mt-8 flex gap-4">
-              <button className="rounded-lg bg-black px-6 py-3 text-white transition hover:bg-gray-800">
+              <button
+                onClick={() => addToCart(id)}
+                className="rounded-lg bg-black px-6 py-3 text-white transition hover:bg-gray-800"
+              >
                 Add To Cart
               </button>
 

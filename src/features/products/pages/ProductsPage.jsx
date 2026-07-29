@@ -11,8 +11,12 @@ import { useProducts } from "../hooks/useProducts";
 import { useProductFilter } from "../hooks/useProductFilter";
 import { useProductSort } from "../hooks/useProductSort";
 import { usePagination } from "../hooks/usePagination";
+import { useContext } from "react";
+import CartContext from "../../cart/context/CartContext";
 
 export default function ProductsPage() {
+  const{cart}= useContext(CartContext)
+  console.log(cart)
   // const [products, setProducts] = useState([]);
   // const [loading, setLoading] = useState(true);
   // const [search, setSearch] = useState("");
