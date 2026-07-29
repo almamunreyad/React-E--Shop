@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import CartContext from "../../features/cart/context/CartContext";
+import AuthContext from "../../features/auth/context/AuthContext";
 
 export default function Navbar() {
   const { cart } = useContext(CartContext);
@@ -8,6 +9,8 @@ export default function Navbar() {
   const totalItems = cart.reduce((total, item) => {
     return total + item.quantity;
   }, 0);
+
+  const { user, logout } = useContext(AuthContext);
 
   return (
     <header className="bg-gray-900 text-white">
@@ -20,17 +23,28 @@ export default function Navbar() {
           <Link to="/about">About</Link>
           <Link to="/products">Products</Link>
           <Link to="/cart">🛒 Cart ({totalItems})</Link>
-          <Link to="/dashboard">Dashboard</Link>
 
-          <Link
-            to="/login"
-            className="rounded bg-blue-600 px-4 py-2 text-white"
-          >
-            Login
-          </Link>
-          <button className="rounded bg-red-600 px-4 py-2 text-white">
-            Logout
-          </button>
+          {!user ? (
+            <Link
+              to="/login"
+              className="rounded bg-blue-600 px-4 py-2 text-white"
+            >
+              Login
+            </Link>
+          ) : (
+            <>
+              <Link to="/dashboard">Dashboard</Link>
+
+              <span className="font-bold">{user.name}</span>
+
+              <button
+                onClick={logout}
+                className="rounded bg-red-600 px-4 py-2 text-white"
+              >
+                Logout
+              </button>
+            </>
+          )}
         </nav>
       </div>
     </header>
