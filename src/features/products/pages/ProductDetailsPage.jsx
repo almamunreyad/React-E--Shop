@@ -1,35 +1,40 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getProductById } from "../services/ProductService";
+// import { getProductById } from "../services/ProductService";
 import Loader from "../../../shared/components/Loader";
 import ErrorMessage from "../../../shared/components/ErrorMessage";
+import { useProductDetails } from "../hooks/useProductDetails";
 
 export default function ProductDetailsPage() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  // before useProductDetails hook create
+  // const [product, setProduct] = useState(null);
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState("");
 
   // console.log(product);
 
-  useEffect(() => {
-    async function loadProduct() {
-      try {
-        setLoading(true);
-        setError("");
-        const data = await getProductById(id);
-        setProduct(data);
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    }
+  // before useProductDetails hook create
+  // useEffect(() => {
+  //   async function loadProduct() {
+  //     try {
+  //       setLoading(true);
+  //       setError("");
+  //       const data = await getProductById(id);
+  //       setProduct(data);
+  //     } catch (error) {
+  //       setError(error.message);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   }
 
-    loadProduct();
-  }, [id]);
+  //   loadProduct();
+  // }, [id]);
+
+  const { product, loading, error } = useProductDetails(id);
 
   if (loading) {
     return <Loader />;
