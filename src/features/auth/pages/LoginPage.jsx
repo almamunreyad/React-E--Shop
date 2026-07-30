@@ -53,7 +53,7 @@ export default function LoginPage() {
           placeholder="Enter your email"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
-          // disabled={}
+          disabled={loading}
         />
 
         <Input
@@ -62,7 +62,7 @@ export default function LoginPage() {
           placeholder="Enter your password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
-          // disabled={}
+          disabled={loading}
         />
 
         <FormError message={error} />

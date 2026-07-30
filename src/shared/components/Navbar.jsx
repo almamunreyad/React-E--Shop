@@ -39,7 +39,7 @@ export default function Navbar() {
 
               <button
                 onClick={logout}
-                className="rounded bg-red-600 px-4 py-2 text-white"
+                className="rounded bg-red-600 px-4 py-2 text-white cursor-pointer"
               >
                 Logout
               </button>
